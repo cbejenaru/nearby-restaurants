@@ -7,6 +7,8 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { PlacesComponent } from './places/places.component';
+import { ApiService } from './service/api.service';
+import { PlacesService } from './service/places.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { PlacesComponent } from './places/places.component';
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [ApiService, PlacesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

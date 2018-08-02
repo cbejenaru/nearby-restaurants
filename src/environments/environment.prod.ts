@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  host: 'https://api.foursquare.com/v2'
+
 };

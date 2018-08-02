@@ -1,3 +1,4 @@
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]=15     [disableDoubleClickZoom]="true" [streetViewControl]="false">
+  <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="onDragEnd($event)">
+  </agm-marker>
 </agm-map>
