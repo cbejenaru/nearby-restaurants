@@ -17,3 +17,53 @@
   padding: 5px;
   border-radius: 15px;
 }
+
+.button-location {
+  margin-left: 5px;
+}
+
+.overview {
+  position: relative;
+}
+
+.overview-counter {
+  height: 40px;
+  padding: 10px 15px;
+  background-color: #6c757d;
+  width: max-content;
+  margin-top: 15px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.overview-buttons {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media (max-width: 767.9px) {
+  .overview {
+    height: 120px;
+  }
+  .overview-buttons {
+    top: 45px;
+    width: 100%;
+  }
+
+  .overview-counter {
+    width: 100%;
+    text-align: center;
+  }
+  .button-location {
+    width: 100%;
+    margin: 0;
+  }
+  .btn-group.custom {
+    display: flex;
+    margin-bottom: 5px;
+  }
+  .btn.custom-btn {
+    flex: 1;
+  }
+}

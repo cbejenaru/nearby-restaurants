@@ -1,15 +1,26 @@
+<div class="overview">
+  <p class="overview-counter">{{ places.length }} places found near you</p>
+  <div class="overview-buttons">
+    <div class="btn-group custom">
+      <button class="btn btn-outline-primary custom-btn" (click)="toggleFilter($event)">Distance {{this.sortMode === 'asc'? '▲' : '▼'}}</button>
+      <button class="btn btn-outline-primary custom-btn" [ngClass]="{'btn-outline-primary': !openOnly, 'btn-primary': openOnly}" (click)="openOnlyToggle($event)" >Open only</button>
+    </div>
+    <button class="btn btn-success button-location" (click)="goToLocation()">To my location</button>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-lg-3" *ngFor="let place of places">
-      <div class="card">
-          <img class="card-img-top" src="{{place.photoUrl}}" alt="IMG">
-          <div class="status" [ngClass]="getOpenStatus(place.isOpen).class">
-            <p class="status-state" [ngClass]="getOpenStatus(place.isOpen).class">{{ getOpenStatus(place.isOpen).state }}</p>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{ place.name }}</h5>
-            <p class="card-text">Distance: {{ place.distance }} m</p>
-            <a *ngIf="place.webPage !== ''" href="{{ place.webPage }}" class="btn btn-primary">Website</a>
-          </div>
-        </div>
+    <div class="card">
+      <img class="card-img-top" src="{{place.photoUrl}}" alt="IMG">
+      <div class="status" [ngClass]="getOpenStatus(place.isOpen).class">
+        <p class="status-state" [ngClass]="getOpenStatus(place.isOpen).class">{{ getOpenStatus(place.isOpen).state }}</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ place.name }}</h5>
+        <p class="card-text">Distance: {{ place.distance }} m</p>
+        <a *ngIf="place.webPage !== ''" href="{{ place.webPage }}" class="btn btn-primary">Website</a>
+      </div>
+    </div>
   </div>
 </div>
