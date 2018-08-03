@@ -2,25 +2,25 @@
   <p class="overview-counter">{{ places.length }} places found near you</p>
   <div class="overview-buttons">
     <div class="btn-group custom">
-      <button class="btn btn-outline-primary custom-btn" (click)="toggleFilter($event)">Distance {{this.sortMode === 'asc'? '▲' : '▼'}}</button>
-      <button class="btn btn-outline-primary custom-btn" [ngClass]="{'btn-outline-primary': !openOnly, 'btn-primary': openOnly}" (click)="openOnlyToggle($event)" >Open only</button>
+      <label type="button" class="btn btn-not-pressed border-primary custom-btn" (click)="viewMode = 'list'">
+        <img class="view-image" [src]="viewMode === 'list' ? '/assets/img/1x4_blue.png' :'/assets/img/1x4.png'" alt="line">
+      </label>
+      <label type="button" class="btn btn-not-pressed border-primary custom-btn" (click)="viewMode = 'grid2'">
+        <img class="view-image" [src]="viewMode === 'grid2' ? '/assets/img/2x2_blue.png' :'/assets/img/2x2.png'" alt="grid2">
+      </label>
+      <label type="button" class="btn btn-not-pressed border-primary custom-btn" (click)="viewMode = 'grid4'">
+        <img class="view-image" [src]="viewMode === 'grid4' ? '/assets/img/4x2_blue.png' :'/assets/img/4x2.png'" alt="grid4">
+      </label>
     </div>
-    <button class="btn btn-success button-location" (click)="goToLocation()">To my location</button>
+    <div class="btn-group custom">
+      <label type="button" class="btn btn-not-pressed border-primary custom-btn" (click)="toggleFilter($event)">Distance {{this.sortMode === 'asc'? '▲' : '▼'}}</label>
+      <label type="button" class="btn btn-not-pressed border-primary custom-btn" [ngClass]="{'btn-pressed ': openOnly}" (click)="openOnlyToggle($event)">Open only</label>
+    </div>
+    <label type="button" class="btn btn-success button-location" (click)="goToLocation()">To my location</label>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-3" *ngFor="let place of places">
-    <div class="card">
-      <img class="card-img-top" src="{{place.photoUrl}}" alt="IMG">
-      <div class="status" [ngClass]="getOpenStatus(place.isOpen).class">
-        <p class="status-state" [ngClass]="getOpenStatus(place.isOpen).class">{{ getOpenStatus(place.isOpen).state }}</p>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ place.name }}</h5>
-        <p class="card-text">Distance: {{ place.distance }} m</p>
-        <a *ngIf="place.webPage !== ''" href="{{ place.webPage }}" class="btn btn-primary">Website</a>
-      </div>
-    </div>
-  </div>
-</div>
+
+<app-places-grid *ngIf="viewMode === 'grid2'" [places]="places" columns="2"></app-places-grid>
+<app-places-grid *ngIf="viewMode === 'grid4'" [places]="places" columns="4"></app-places-grid>
+<app-places-list *ngIf="viewMode === 'list'" [places]="places"></app-places-list>

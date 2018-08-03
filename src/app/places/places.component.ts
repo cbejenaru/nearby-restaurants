@@ -13,6 +13,7 @@ export class PlacesComponent implements OnInit {
   public places: IPlace[];
   public openOnly = false;
   public sortMode = 'asc';
+  public viewMode = 'grid4';
 
   constructor(private placesService: PlacesService) {}
 
@@ -21,15 +22,6 @@ export class PlacesComponent implements OnInit {
       this.allPlaces = data;
       this.sortPlaces(this.sortMode);
     });
-  }
-
-  public getOpenStatus(isOpen: any) {
-    if (isOpen === 'unknown') {
-      return { class: 'bg-secondary', state: 'Unknown' };
-    }
-    return isOpen === 'true'
-      ? { class: 'bg-success', state: 'Open' }
-      : { class: 'bg-danger', state: 'Close' };
   }
 
   public openOnlyToggle() {

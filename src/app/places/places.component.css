@@ -1,29 +1,19 @@
-.card {
-  margin: 10px 0;
-  min-height: 410px;
-}
-
-.status {
-  height: 4px;
-  width: 100%;
-}
-
-.status-state {
-  position: absolute;
-  margin-top: -15px;
-  right: 8px;
-  font-weight: bold;
-  color: #fff;
-  padding: 5px;
-  border-radius: 15px;
-}
-
 .button-location {
   margin-left: 5px;
 }
 
 .overview {
   position: relative;
+}
+
+.btn-not-pressed {
+  background-color: #fff;
+  color: #007bff;
+}
+
+.btn-pressed {
+  background: #007bff;
+  color: #fff;
 }
 
 .overview-counter {
@@ -42,15 +32,22 @@
   top: 0;
 }
 
+.btn-group.custom {
+  margin-right: 5px;
+}
+
+.view-image {
+  width: 40px;
+}
+
 @media (max-width: 767.9px) {
   .overview {
-    height: 120px;
+    height: 150px;
   }
   .overview-buttons {
-    top: 45px;
+    top: 50px;
     width: 100%;
   }
-
   .overview-counter {
     width: 100%;
     text-align: center;
