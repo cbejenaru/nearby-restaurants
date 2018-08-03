@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IPlace } from '../../models/place.model';
+import { MatDialog } from '@angular/material/dialog';
+import { PlaceDialogComponent } from '../place-dialog/place-dialog.component';
 
 @Component({
   selector: 'app-places-grid',
@@ -11,7 +13,7 @@ export class PlacesGridComponent implements OnInit {
   @Input() columns: string;
   public columnClass = 'col-lg-3';
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
     console.log(this.columns, typeof this.columns);
@@ -29,5 +31,9 @@ export class PlacesGridComponent implements OnInit {
     return isOpen === 'true'
       ? { class: 'bg-success', state: 'Open' }
       : { class: 'bg-danger', state: 'Close' };
+  }
+
+  public viewDetails(place: IPlace) {
+    this.dialog.open(PlaceDialogComponent, { width: '550px', data: {...place} });
   }
 }

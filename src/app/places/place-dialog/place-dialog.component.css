@@ -1,0 +1,26 @@
+agm-map {
+  height: 100%;
+}
+
+.map-container {
+  height: 250px;
+}
+
+.distance {
+  padding: 15px 0;
+}
+
+.place-open {
+  width: 100% !important;
+  padding: 5px 30px;
+  border-radius: 20px;
+  color: #fff;
+  width: 120px;
+  text-align: center;
+  margin: 7px 0;
+  
+}
+
+.web-buton {
+  margin-bottom: 15px;
+}

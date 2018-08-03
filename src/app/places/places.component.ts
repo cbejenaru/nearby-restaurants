@@ -22,6 +22,7 @@ export class PlacesComponent implements OnInit {
       this.allPlaces = data;
       this.sortPlaces(this.sortMode);
     });
+
   }
 
   public openOnlyToggle() {
