@@ -4,6 +4,6 @@ export interface IPlace {
   lat: number;
   lng: number;
   distance: number;
-  isOpen: boolean;
+  isOpen: string;
   webPage: string;
 }

@@ -3,17 +3,22 @@ import { ApiService } from './api.service';
 import { BehaviorSubject } from 'rxjs';
 import { IPlace } from '../models/place.model';
 import { map } from 'rxjs/operators';
+import { initCoords } from '../configs';
 
 @Injectable()
 export class PlacesService {
   public places: BehaviorSubject<IPlace[]>;
+  private latlng: BehaviorSubject<any>;
+  private geolocation: BehaviorSubject<any>;
 
   constructor(private api: ApiService) {
     this.places = new BehaviorSubject([]);
+    this.geolocation = new BehaviorSubject({ ...initCoords });
+    this.latlng = new BehaviorSubject({ ...initCoords });
+    this.setLocation(initCoords.lat, initCoords.lng);
   }
 
-  public setLocation(lat: number, lng: number) {
-    console.log('[Places Service]: ', lat, lng);
+  private setLocation(lat: number, lng: number) {
     this.api
       .getPlaces(lat, lng)
       .pipe(
@@ -31,14 +36,13 @@ export class PlacesService {
             } else {
               image = 'assets/img/no-image.png';
             }
-            console.log(place);
             return {
               name: place.name || '',
               photoUrl: image,
               lat: place.location.lat || '',
               lng: place.location.lng || '',
               distance: place.location.distance || '',
-              isOpen: place.hours ? place.hours.isOpen : '',
+              isOpen: place.hours ? place.hours.isOpen.toString() : 'unknown',
               webPage: place.url || ''
             };
           });
@@ -49,5 +53,24 @@ export class PlacesService {
 
   public getPlaces() {
     return this.places.asObservable();
+  }
+
+  public goToGeolocation() {
+    this.geolocation
+      .subscribe((location: any) => this.setLatLng(location.lat, location.lng))
+      .unsubscribe();
+  }
+
+  public setGeolocation(lat: number, lng: number) {
+    this.geolocation.next({ lat, lng });
+  }
+
+  public setLatLng(lat: number, lng: number) {
+    this.latlng.next({ lat, lng });
+    this.setLocation(lat, lng);
+  }
+
+  public getLatLng() {
+    return this.latlng.asObservable();
   }
 }
