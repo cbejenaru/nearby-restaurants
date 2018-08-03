@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-lg-10 offset-lg-1">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let place of places">
+        <div class="row">
+          <div class="col-3 col-sm-2 col-lg-1">
+            <img class="image" src="{{ place.photoUrl }}" alt="">
+          </div>
+          <div class="col-9 col-sm-10 col-lg-11">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="place-name">{{ place.name }}</div>
+              </div>
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div class="place-distance">Distance: {{ place.distance }}m</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="place-open" [ngClass]="getOpenStatus(place.isOpen).class">{{ getOpenStatus(place.isOpen).state }}</div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="place-website">
+                      <a *ngIf="place.webPage !== ''" href="{{ place.webPage }}">Website</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

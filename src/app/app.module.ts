@@ -9,12 +9,16 @@ import { MapComponent } from './map/map.component';
 import { PlacesComponent } from './places/places.component';
 import { ApiService } from './service/api.service';
 import { PlacesService } from './service/places.service';
+import { PlacesListComponent } from './places/places-list/places-list.component';
+import { PlacesGridComponent } from './places/places-grid/places-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     PlacesComponent,
+    PlacesListComponent,
+    PlacesGridComponent,
   ],
   imports: [
     BrowserModule,

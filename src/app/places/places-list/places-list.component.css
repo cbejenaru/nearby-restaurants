@@ -1,0 +1,44 @@
+.image {
+  width: 50px;
+}
+
+.place-name {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.place-distance {
+  margin-top: 13px;
+}
+
+.place-open {
+  width: fit-content;
+  padding: 5px 30px;
+  border-radius: 20px;
+  color: #fff;
+  width: 120px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.place-website {
+  margin-top: 12px;
+  margin-left: 5px;
+}
+
+@media (max-width: 767px) {
+  .place-name {
+    margin-top: 0;
+  }
+  .place-distance {
+    margin-top: 0;
+  }
+  .place-open {
+    margin-top: 0;
+    width: 100%;
+  }
+  .place-website {
+    margin-top: 0;
+    text-align: center;
+  }
+}
