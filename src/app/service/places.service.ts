@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class PlacesService {
   public places: BehaviorSubject<IPlace[]>;
+  public latlng: any;
 
   constructor(private api: ApiService) {
     this.places = new BehaviorSubject([]);
@@ -38,7 +39,7 @@ export class PlacesService {
               lat: place.location.lat || '',
               lng: place.location.lng || '',
               distance: place.location.distance || '',
-              isOpen: place.hours ? place.hours.isOpen : '',
+              isOpen: place.hours ? place.hours.isOpen.toString() : 'unknown',
               webPage: place.url || ''
             };
           });

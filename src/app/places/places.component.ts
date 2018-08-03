@@ -14,10 +14,17 @@ export class PlacesComponent implements OnInit {
   constructor(private placesService: PlacesService) {}
 
   ngOnInit() {
-    this.placesService
-      .getPlaces()
-      .subscribe(data => {
-        this.places = data;
-      });
+    this.placesService.getPlaces().subscribe(data => {
+      this.places = data;
+    });
+  }
+
+  public getOpenStatus(isOpen: any) {
+    if (isOpen === 'unknown') {
+      return { class: 'bg-secondary', state: 'Unknown' };
+    }
+    return isOpen === 'true'
+      ? { class: 'bg-success', state: 'Open' }
+      : { class: 'bg-danger', state: 'Close' };
   }
 }

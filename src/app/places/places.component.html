@@ -2,7 +2,9 @@
   <div class="col-lg-3" *ngFor="let place of places">
       <div class="card">
           <img class="card-img-top" src="{{place.photoUrl}}" alt="IMG">
-          <div class="satus" ></div>
+          <div class="status" [ngClass]="getOpenStatus(place.isOpen).class">
+            <p class="status-state" [ngClass]="getOpenStatus(place.isOpen).class">{{ getOpenStatus(place.isOpen).state }}</p>
+          </div>
           <div class="card-body">
             <h5 class="card-title">{{ place.name }}</h5>
             <p class="card-text">Distance: {{ place.distance }} m</p>

@@ -2,3 +2,18 @@
   margin: 10px 0;
   min-height: 410px;
 }
+
+.status {
+  height: 4px;
+  width: 100%;
+}
+
+.status-state {
+  position: absolute;
+  margin-top: -15px;
+  right: 8px;
+  font-weight: bold;
+  color: #fff;
+  padding: 5px;
+  border-radius: 15px;
+}
