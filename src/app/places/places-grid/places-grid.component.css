@@ -1,6 +1,19 @@
 .card {
   margin: 10px 0;
-  min-height: 410px;
+  min-height: 97%;
+}
+
+.card-body {
+  padding-bottom: 50px;
+}
+
+.card-title {
+  cursor: pointer;
+}
+
+.card-title:hover,
+.more-icon:hover {
+  color: #007bff;
 }
 
 .status {
@@ -16,4 +29,17 @@
   color: #fff;
   padding: 5px;
   border-radius: 15px;
+}
+
+.more-icon {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.web-button {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
 }
