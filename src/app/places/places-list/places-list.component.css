@@ -5,6 +5,7 @@
 .place-name {
   font-size: 18px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .place-distance {
@@ -22,8 +23,21 @@
 }
 
 .place-website {
+  z-index: 99;
   margin-top: 12px;
   margin-left: 5px;
+}
+
+.more-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.place-name:hover,
+.more-icon:hover {
+  color: #007bff;
 }
 
 @media (max-width: 767px) {

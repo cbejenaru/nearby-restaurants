@@ -9,9 +9,9 @@
         <h5 class="card-title" (click)="viewDetails(place)">{{ place.name }}</h5>
         <p class="card-text">Distance: {{ place.distance }} m</p>
       </div>
-      <a *ngIf="place.webPage !== ''" href="{{ place.webPage }}" class="btn btn-primary web-button">Website</a>
+      <a *ngIf="place.webPage !== ''" href="{{ place.webPage }}" class="btn btn-primary web-button" target="_blank">Website</a>
       <i class="material-icons more-icon" (click)="viewDetails(place)">
-        open_in_new
+          location_on
       </i>
     </div>
   </div>

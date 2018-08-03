@@ -34,6 +34,6 @@ export class PlacesGridComponent implements OnInit {
   }
 
   public viewDetails(place: IPlace) {
-    this.dialog.open(PlaceDialogComponent, { width: '350px' });
+    this.dialog.open(PlaceDialogComponent, { width: '550px', data: {...place} });
   }
 }

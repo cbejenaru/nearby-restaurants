@@ -1,3 +1,23 @@
-<p>
-  place-dialog works!
-</p>
+<h1 mat-dialog-title class="text-center">{{ place.name }}</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-lg-4">
+      <img src="{{ place.photoUrl }}" width=100% alt="img">
+      <p class="distance">Distance: {{ place.distance }}m</p>
+      <div class="place-open" [ngClass]="getOpenStatus(place.isOpen).class">{{ getOpenStatus(place.isOpen).state }}</div>
+      <a *ngIf="place.webPage !== ''" href="{{place.webPage}}" target="_blank" class="btn btn-link btn-block web-buton">WebPage</a>
+    </div>
+    <div class="col-lg-8">
+      <div class="map-container">
+        <agm-map [latitude]="place.lat" [longitude]="place.lng" [zoom]=15 [streetViewControl]="false">
+          <agm-marker [latitude]="place.lat" [longitude]="place.lng">
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+
+</div>
+<mat-dialog-actions>
+  <button class="btn btn-danger" (click)="close()">Close</button>
+</mat-dialog-actions>
